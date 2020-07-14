@@ -19,13 +19,20 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
 import { DishService } from './services/dish.service';
+import { PromotionService } from './services/promotion.service';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     DishdetailComponent,
+    HomeComponent,
     HeaderComponent,
+    AboutComponent,
+    ContactComponent,
     FooterComponent
   ],
   imports: [
@@ -39,7 +46,7 @@ import { DishService } from './services/dish.service';
     MatButtonModule,
     FlexLayoutModule
   ],
-  providers: [DishService],
+  providers: [DishService,PromotionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
