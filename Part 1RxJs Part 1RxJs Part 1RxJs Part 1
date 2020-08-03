@@ -1,0 +1,18 @@
+[33m7b3904d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m Promises Part 1
+[33mab3f151[m Reactive Forms Part 2
+[33m319c8e1[m Reactive Forms Part 1
+[33m3dd5a9a[m Template Forms Part 2
+[33me0003a5[m Template Forms Part 1
+[33m74bd698[m Dialogs (ALSO REPLACED angular/material with angular/material/... because it is required by version 9 of angular material)
+[33mbf2f85a[m updated package.json and angular versions
+[33m079981b[m Week 2 Assignment 2
+[33m51f8612[m Single Page Applications Part 3
+[33m3b135bc[m Single Page Applications Part 1
+[33m019ed8e[m Angular Router Basics(Added changes to menu.ts for DISHSERVICE)
+[33mcda4718[m Angular Router Basics
+[33m8943357[m added header and footer
+[33m97f73fd[m Data Binding
+[33m68cb5a4[m Week 1 Assignment 1
+[33m4a642d3[m Components Part 2
+[33m3b97cd8[m Components Part 1
+[33m979fb9a[m initial commit
