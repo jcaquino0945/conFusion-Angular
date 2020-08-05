@@ -9,6 +9,9 @@ import { delay } from 'rxjs/operators';
 export class DishService {
 
   constructor() { }
+  getDishIds(): Observable<string[] | any> {
+    return of(DISHES.map(dish => dish.id ));
+  }
   getDishes(): Observable<Dish[]> {
     return of(DISHES).pipe(delay(2000));
   }
@@ -20,4 +23,5 @@ export class DishService {
   getFeaturedDish(): Observable<Dish> {
     return of(DISHES.filter((dish) => dish.featured)[0]).pipe(delay(2000));
   }
+  
 }
