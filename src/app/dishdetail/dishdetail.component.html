@@ -58,11 +58,30 @@
                     </mat-list>
                 </mat-card-content>
     </mat-card>
+    
         </div>
         <div fxFlex [hidden]="dish">
           <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
         </div>
       
   </div>
- 
+ <div>
+  <form novalidate [formGroup]="commentForm" #comForm="ngForm" (ngSubmit)="onSubmit()"> 
+    <mat-form-field appearance="fill" >
+      <p>
+      <input matInput formControlName="author" placeholder="Name" type="text" required>
+      <mat-error *ngIf="commentFormErrors.author">
+        {{commentFormErrors.author}}
+      </mat-error>
+    
+    </mat-form-field>
+    
+      <mat-slider></mat-slider>
+      
+      <mat-form-field class="full-width" appearance="fill">
+        <textarea matInput formControlName="comment" placeholder="Your Feedback" rows=8></textarea>
+      </mat-form-field>
+      <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="comForm.form.invalid">Submit</button>
+  </form>
+ </div>
 </div>
