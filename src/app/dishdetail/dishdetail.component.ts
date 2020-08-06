@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Dish } from '../shared/dish';
-
+import { DISHES } from '../shared/dishes';
 import { DishService } from '../services/dish.service';
 
 import { Params, ActivatedRoute } from '@angular/router';
@@ -22,6 +22,8 @@ export class DishdetailComponent implements OnInit {
     next: string;
     commentForm: FormGroup;
     comment: Comment;
+    //dishes: Dish[] = DISHES;
+
   
     
     constructor(private dishservice: DishService,
@@ -38,19 +40,29 @@ export class DishdetailComponent implements OnInit {
     }
     commentFormErrors = {
       'author': '',
+      'comment': ''
     };
     validationMessages = {
       'author': {
         'required':      'Author Name is required.',
         'minlength':     'Author Name must be at least 2 characters long.',
         'maxlength':     'Author Name cannot be more than 25 characters long.'
+      },
+      'comment': {
+        'required': 'Comment is required'
       }
+    };
+    getDate() {
+      var d = new Date();
+  var n = d.toISOString();
+  return n;
     }
     createForm() {
       this.commentForm = this.cm.group({
         author: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)] ],
         rating: 5,
-        comment: ''
+        comment: ['', Validators.required],
+        date:this.getDate()
       });
       this.commentForm.valueChanges
       .subscribe(data => this.onValueChanged(data));
@@ -86,13 +98,15 @@ export class DishdetailComponent implements OnInit {
     }
     
 onSubmit() {
-  this.comment=this.commentForm.value;
+  this.comment= this.commentForm.value;
   console.log(this.comment);
+  this.dish.comments.push(this.comment)
   this.commentForm.reset({
     author:'',
     rating:5,
-    comment:''
+    comment:'',
+    date: this.getDate()
   });
-  this.commentFormDirective.resetForm();
+  //this.commentFormDirective.resetForm(); this shit restarts the form so date will be gone
 }
 }
